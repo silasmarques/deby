@@ -11,6 +11,11 @@ public class Util {
 	public static String chrome="C:\\Desenvolvimento\\Drivers\\chromedriver.exe";
 	public static String firefox="C:\\Desenvolvimento\\Drivers\\geckodriver.exe";
 	public static String url = "https://automacaocombatista.herokuapp.com/treinamento/home";
+	public static String url2 = "http://demo.automationtesting.in/Register.html";
+	public static String urlPractice = "http://practice.automationtesting.in/";
+	
+	
+		
 	//------------------------------------------------------------------------------
 	public static String caminhoPDF="C:\\Users\\Downloads\\";
 	public static String nomeArquivoPDF="Detalhe do Evento.pdf";

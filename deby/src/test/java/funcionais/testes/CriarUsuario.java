@@ -17,6 +17,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By.ById;
+import org.openqa.selenium.By.ByXPath;
+import org.openqa.selenium.server.browserlaunchers.MockBrowserLauncher;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -57,8 +59,7 @@ public class CriarUsuario extends ReportHTML {
 
 		try {
 
-			System.out.print("TESTE SILAS");
-			driver = Browser.getDriver(BrowserEnum.valueOf(Util.navegadorChrome.toUpperCase()), Util.url, Util.chrome);
+			driver = Browser.getDriver(BrowserEnum.valueOf(Util.navegadorChrome.toUpperCase()), Util.url2, Util.chrome);
 
 			// -----------------------------------------------------------------------------------------------------------
 
@@ -98,34 +99,53 @@ public class CriarUsuario extends ReportHTML {
 
 		footer();
 		Log.endTestCase();
-		driver.quit();
+		//driver.quit();
 	}
 
 	@Test
 	public void test01_CriarUsuario() throws InterruptedException, Exception {
 
 		try {
-
 			
-			fc.clickElement(By.linkText("Formulário"));
-			fc.clickElement(By.linkText("Criar Usuários"));
-			mock.dataMassNameFirst(By.id("user_name"));
-			mock.dataMassNameLast(By.id("user_lastname"));
-			mock.dataMassEmailAddress(By.id("user_email"));
-			mock.dataMassAddressComplement(By.id("user_address"));
-			mock.dataMassUniversityName(By.id("user_university"));
-			mock.dataMassJobTitle(By.id("user_profile"));
-			mock.dataMasschuckNorris(By.id("user_gender"));
-			mock.dataMassGenerateNumbersPrefixAndSuffix(By.id("user_age"), null, 2, null);
-			fc.clickElement(By.xpath("/html/body/div[2]/div[2]/div[3]/div[2]/form/div[5]/div/div/input"));
+			fc.uploadFile(By.id("imagesrc"), "C:\\Users\\Silas\\Pictures\\insta.png");
+			
+			mock.nameFirst(By.xpath("//input[@ng-model='FirstName']"));
+			mock.nameFirst(By.xpath("//input[@ng-model='LastName']"));
+			mock.AddressComplement(By.xpath("/html/body/section/div/div/div[2]/form/div[2]/div/textarea"));
+			mock.EmailAddress(By.xpath("//input[@ng-model='EmailAdress']"));
+			fc.clickElement(By.xpath("//input[@ng-model='Phone']"));
+			fc.sendKeysElement(By.xpath("//input[@ng-model='Phone']"), "4374444444");
+			
+			fc.clickElement(By.xpath("/html/body/section/div/div/div[2]/form/div[5]/div/label[1]/input"));
+			fc.clickElement(By.id("checkbox2"));
+					
+			fc.clickElement(By.id("msdd")); // Languages
+			fc.clickElement(By.xpath("/html/body/section/div/div/div[2]/form/div[7]/div/multi-select/div[2]/ul/li[29]/a"));
+			fc.clickElement(By.xpath("/html/body/section/div/div/div[2]/form/div[7]/div/multi-select/div[2]/ul/li[8]/a"));
+
+			fc.selectDropdownItem(By.id("Skills"), "Java");
+			fc.selectDropdownItem(By.id("countries"), "Brazil");
+			
+			fc.clickElement(By.xpath("/html/body/section/div/div/div[2]/form/div[10]/div/span/span[1]/span"));
+			fc.selectDropdownAutocomplete(By.xpath("/html/body/span/span/span[1]/input"), "new", By.xpath("/html/body/span/span/span[2]/ul/li"));
+			
+			fc.scrollToElement(By.id("yearbox"));
+			fc.selectDropdownItem(By.id("yearbox"), "1983");
+			fc.selectDropdownItem(By.xpath("/html/body/section/div/div/div[2]/form/div[11]/div[2]/select"), "March");
+			fc.selectDropdownItem(By.id("daybox"), "1");
+			
+			String password ="Smarques765";
+			fc.sendKeysElement(By.id("firstpassword"), password);
+			fc.sendKeysElement(By.id("secondpassword"), password);
+			
+			fc.clickElement(By.id("submitbtn"));
+			
 		} catch (Exception ex) {
 			throw ex;
 		} finally {
 
-			sc.getScreen(new Object() {
-			}.getClass().getEnclosingMethod().getName());
-			Log.getNameTest("Funcionalidade ", new Object() {
-			}.getClass().getEnclosingMethod().getName());
+			sc.getScreen(new Object() {}.getClass().getEnclosingMethod().getName());
+			Log.getNameTest("Funcionalidade ", new Object() {}.getClass().getEnclosingMethod().getName());
 			Log.test("Informar Nome", "massa");
 			Log.test("Informar Último Nome ", "massa");
 			Log.test("Informar E-mail ", "massa");
@@ -140,7 +160,7 @@ public class CriarUsuario extends ReportHTML {
 
 	}
 
-	@Test
+	//@Test
 	public void test02_ValidarCadastroUsuario() throws InterruptedException, Exception {
 
 		try {
