@@ -57,6 +57,7 @@ public class CriarUsuario extends ReportHTML {
 
 		try {
 
+			System.out.print("TESTE SILAS");
 			driver = Browser.getDriver(BrowserEnum.valueOf(Util.navegadorChrome.toUpperCase()), Util.url, Util.chrome);
 
 			// -----------------------------------------------------------------------------------------------------------
