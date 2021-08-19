@@ -41,7 +41,7 @@ import funcionais.massa.MassaMenu;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
-public class CriarUsuario extends ReportHTML {
+public class Register extends ReportHTML {
 
 	private static WebDriver driver;
 	private static FormComponent fc;
@@ -49,10 +49,11 @@ public class CriarUsuario extends ReportHTML {
 	private static GenerateDataMass mass;
 	Login login = new Login(driver);
 	GenerateDataMass mock = new GenerateDataMass(driver);
-
+	PDFContent lePdf = new PDFContent(driver);
+	
 	MassaLogin massaLogin = new MassaLogin();
 
-	PDFContent lePdf = new PDFContent(driver);
+	
 
 	@BeforeClass
 	public static void inicio_poc() throws Exception {
@@ -99,7 +100,7 @@ public class CriarUsuario extends ReportHTML {
 
 		footer();
 		Log.endTestCase();
-		//driver.quit();
+		driver.quit();
 	}
 
 	@Test
