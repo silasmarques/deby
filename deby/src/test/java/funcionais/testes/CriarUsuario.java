@@ -59,6 +59,7 @@ public class CriarUsuario extends ReportHTML {
 
 		try {
 
+			// teste silas para ver se está OK o git
 			driver = Browser.getDriver(BrowserEnum.valueOf(Util.navegadorChrome.toUpperCase()), Util.url2, Util.chrome);
 
 			// -----------------------------------------------------------------------------------------------------------
