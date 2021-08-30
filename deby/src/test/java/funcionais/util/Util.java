@@ -24,5 +24,7 @@ public class Util {
 
 	public static String user_name = "";
 	public static String user_profile="";
+	
+	public static String obterToken="";
 
 }
