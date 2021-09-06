@@ -25,6 +25,14 @@ public class Util {
 	public static String user_name = "";
 	public static String user_profile="";
 	
+	
+	// ------------------------------------------------------------------------------
 	public static String obterToken="";
-
+	public static Integer id=null;
+	
+	public static String CONTA_NAME= "Silas Marques " + System.nanoTime();
+	public static String CONTA_NAME_ALTERADO="Silas Marques Alterado";
+	public static Integer CONTA_ID;
+	
+	
 }
